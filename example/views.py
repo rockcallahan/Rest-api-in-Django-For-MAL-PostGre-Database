@@ -19,3 +19,5 @@ class GetTopten(generics.ListAPIView):
     def get_queryset(self):
         sorted=anime.objects.order_by('Popularity')
         return sorted[:10]
+
+class Get
