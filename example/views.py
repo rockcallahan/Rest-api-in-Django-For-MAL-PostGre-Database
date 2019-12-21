@@ -12,3 +12,12 @@ class GetbyRank(generics.ListAPIView):
     def get_queryset(self):
         rank=self.kwargs['rank']
         return anime.objects.filter(rank=rank)
+
+
+class GetTopten(generics.ListAPIView):
+    serializer_class=AnimeSerializer
+    def get_queryset(self):
+        sorted=anime.objects.order_by('Popularity')
+        return sorted[:10]
+
+
